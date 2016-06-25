@@ -12,10 +12,23 @@
     <div class="row">
         <form class="col s4 push-s4" method="post" action="{{ action_user_registration }}">
             {% csrf_token %}
+
+            {% if error %}
+                <div class="row">
+                    <i class="material-icons red-text left">warning</i> Pick a new username!
+                </div>
+            {% endif %}
+
             <div class="row input-field">
                 <label for="username">Username</label>
                 <input id="username" name="username" value="" type="text" required>
             </div>
+
+            {% if error %}
+                <div class="row">
+                    <i class="material-icons red-text left">warning</i> Pick a different email!
+                </div>
+            {% endif %}
 
             <div class="row input-field">
                 <label for="email">Email</label>
@@ -51,7 +64,7 @@
         $(document).ready(function () {
             $('#form-submit').click(
                     function (e) {
-                        if (!arePasswordsEqual($('#password', $('#retype-password')))) {
+                        if (!arePasswordsEqual($('#password').val(), $('#retype-password').val())) {
                             $('#password-error').load('static/static_html/password_error.html', function () {
                                 alert("Error message loaded!");
                             });

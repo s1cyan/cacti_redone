@@ -4,8 +4,9 @@ from user_manager import UserManager
 # Global managers
 _user_manager = UserManager()
 
+
 def render_main_page(request):
-    return render(request,"default.html")
+    return render(request, "default.html")
 
 
 # Create your views here.
@@ -23,23 +24,24 @@ def render_user_registration(request):
 
 
 def process_user_registration(request):
-    print request.POST
-    print request.POST['username']
     _user = _user_manager.create_regular_user(username=request.POST['username'],
                                               password=request.POST['password'],
                                               email=request.POST['email'])
     if _user is not None:
-        return render(request, "successful_register.html")
+        return render(request, "successful_registration.html")
     else:
-        return None
+        context_dict = {
+            'error': True
+        }
+        return render(request, "user_registration.html", context_dict)
 
 
 def render_profile_page(request):
-    return render(request,"profile.html")
+    return render(request, "profile.html")
 
 
 def render_friends_page(request):
-    return render(request,'friends.html')
+    return render(request, 'friends.html')
 
 
 def render_login(request):
@@ -47,4 +49,4 @@ def render_login(request):
 
 
 def render_success(request):
-    return render(request, "registration_successful.html")
+    return render(request, "successful_registration.html")
