@@ -51,7 +51,7 @@
         $(document).ready(function () {
             $('#form-submit').click(
                     function (e) {
-                        if (!arePasswordsEqual($('#password', $('#retype-password')))) {
+                        if (!arePasswordsEqual($('#password').val(), $('#retype-password').val())) {
                             $('#password-error').load('static/static_html/password_error.html', function () {
                                 alert("Error message loaded!");
                             });

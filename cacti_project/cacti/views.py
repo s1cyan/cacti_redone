@@ -23,13 +23,11 @@ def render_user_registration(request):
 
 
 def process_user_registration(request):
-    print request.POST
-    print request.POST['username']
     _user = _user_manager.create_regular_user(username=request.POST['username'],
                                               password=request.POST['password'],
                                               email=request.POST['email'])
     if _user is not None:
-        return render(request, "successful_register.html")
+        return render(request, "successful_registration.html")
     else:
         return None
 
