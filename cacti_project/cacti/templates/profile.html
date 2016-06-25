@@ -1,0 +1,36 @@
+{% extends "default.html" %}
+
+{% block header %}
+{% include "sidenav.html" %}
+{% endblock %}
+
+{% block main %}
+<br>
+<div class="row">
+	<div class="col s8">
+
+		<h3> Username: {{ username }}</h3>
+
+		<h3>Email: {{ email }} </h3>
+
+		<h3> Password: {{ password }}  </h3>
+		<div class="waves-effect btn teal darken-4">Change Password</div>
+	</div>
+
+	<div class="col s4 center-align">
+		<img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Mexican_Pink_430090_i0.png">
+		<div class="waves-effect btn teal darken-4"> Change Picture</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="card large">
+		<div class="center-align">
+			<h3> Calendar</h3>
+
+		</div>
+	</div>
+	<div class=" col s12 center-align btn waves-effect teal darken-4">Update Schedule</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+# pyc files from Python
+*.pyc
+
+# swap files generated from Vim
+*.swp
+
+# Migrations
+*/migrations/
+
+# Virtualenv Files
+/[Vv]env/
+/[Ee]nv/
+/boop/
+/cyanenv/
+
+# Jetbrains Related Folders
+/.idea/
+
+# Orig data
+*.orig
+
+# OSX Junk Data
+.DS_Store
+
+# Sqlite3
+db.sqlite3
+
+# I'm Done Applet
+/.imdone
+
+# Idea
+*/.idea
