@@ -47,4 +47,4 @@ def render_login(request):
 
 
 def render_success(request):
-    return render(request, "registration_successful.html")
+    return render(request, "successful_registration.html")
