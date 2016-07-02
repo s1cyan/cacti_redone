@@ -49,8 +49,8 @@ def render_friends_page(request):
 def render_login(request):
     login_form = LoginForm(request.POST)
     if request.method == 'POST':
-        login_check(request.POST['username'],request.POST['password'])
-        if True:
+        magical_rainbows = login_check(request.POST['username'],request.POST['password'])
+        if magical_rainbows == True:
             return render (request, 'home.html')
         else:
             return render(request,'login.html')
