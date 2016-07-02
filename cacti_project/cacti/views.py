@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from user_manager import UserManager
 from forms import LoginForm
-from login_check import  login_check
+from login_check import login_check
 
 # Global managers
 _user_manager = UserManager()
@@ -17,8 +17,6 @@ def render_home_page(request):
 
 
 def render_user_registration(request):
-    # user_info = request['POST']
-    # print user_info
     context_dict = {
         'action_user_registration': 'process-user-registration'
     }
@@ -47,13 +45,16 @@ def render_friends_page(request):
 
 
 def render_login(request):
-    login_form = LoginForm(request.POST)
+    # Grab the username/email and the password
     if request.method == 'POST':
-        magical_rainbows = login_check(request.POST['username'],request.POST['password'])
-        if magical_rainbows == True:
-            return render (request, 'home.html')
+        is_user_authenticated = login_check(request.POST['username'], request.POST['password'])
+        print 'Is Authenticated? %s' % is_user_authenticated
+        context_dict = {'error' : not is_user_authenticated}
+        if is_user_authenticated:
+            # TODO: Use HTTP Redirect
+            return render(request, 'home.html')
         else:
-            return render(request,'login.html')
+            return render(request, 'login.html', context_dict)
 
     return render(request, 'login.html')
 

@@ -1,38 +1,47 @@
 {% extends "default.html" %}
 {% block main %}
 
-<div class="row">
-	<form id="login-form" method="POST" class="col s6 offset-s3">
+    <div class="row">
+        <form id="login-form" method="POST" class="col s6 offset-s3">
 
-		{% csrf_token %}
-		<br>
-		<br>
-		<div class="row">
-			<div class="col s6 offset-s3 center teal-text">
-				<h3> Login</h3>
-</div>
-			<br>
-			<br>
-				<div class="input-field col s6 offset-s3">
-				<input id="username" name="username" type="text" class="validate">
-				<label class="active" for="username">Username/Email:</label>
-				</div>
-			<br>
-			<div class="input-field col s6 offset-s3">
-				<input id="password" name="password" type="text" class="validate">
-				<label class="active" for="password"> Password</label>
-			</div>
-
-			<div class="col s6 offset-s3 center">
-				<button class="btn-large waves-effect waves-light teal darken-3 white-text" type="submit">Submit</button>
-
-			</div>
-			
-
-
-		</div>
-
-		</form>
-	</div>
+            {% csrf_token %}
+            <br>
+            <br>
+            <div class="row">
+                <div class="col s6 offset-s3 center teal-text">
+                    <h3> Login</h3>
+                </div>
+                <br>
+                <br>
+                {% if error %}
+                    <div class="col s6 offset-s3">
+                        <i class="material-icons red-text left">warning</i>No match, please retype your credentials!
+                    </div>
+                {% endif %}
+                <div class="input-field col s6 offset-s3">
+                    <input id="username" name="username" type="text" class="validate" required>
+                    <label class="active" for="username">Username/Email:</label>
+                </div>
+                <br>
+                <div class="input-field col s6 offset-s3">
+                    <input id="password" name="password" type="password" class="validate" required>
+                    <label class="active" for="password"> Password</label>
+                </div>
+                <div class="col s6 offset-s3 center">
+                    <button class="btn-large waves-effect waves-light teal darken-3 white-text" type="submit">Login
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock %}
 
+{% block scripts %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+        })
+    </script>
+{% endblock %}
