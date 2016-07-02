@@ -1,92 +1,95 @@
-{% extends 'default.html'%}
+{% extends 'default.html' %}
 
 
 {% block header %}
-{% include "hamburgernav.html" %}
-{% include "sidenav.html"%}
-
+    {% include "hamburgernav.html" %}
 {% endblock %}
 
 
 {% block main %}
-<div class="row">
-	<ul class="collection">
-		<li class="col s12 collection-item orange lighten-5">
-					<div class=" input-field">
-						<i class="material-icons prefix">search</i>
-						<input id="icon-prefix" type="text" class="validate" placeholder="Find Friends">
-					</div>
-		</li>
+    <div class="row">
+        <ul class="collection">
+            <li class="col s12 collection-item orange lighten-5">
+                <div class=" input-field">
+                    <i class="material-icons prefix">search</i>
+                    <input id="icon-prefix" type="text" class="validate" placeholder="Find Friends">
+                </div>
+            </li>
 
-	</ul>
+        </ul>
 
-<div class="col s6 offset-l3 center">
-	<a class="btn-large waves-light waves-effect waves-ripple darken-4 teal"> Who's Free?</a>
-
-
-</div>
-<div class="col s6 offset-l3">
-	<br>
-
-	<div class="card large">
-	<table class="bordered highlight">
-		<thead>
-		<tr>
-
-			<th data-field="time">Time</th>
-			<th data-field="sun">Sunday</th>
-			<th data-field="mon">Monday</th>
-			<th data-field="tues">Tuesday</th>
-			<th data-field="wed">Wednesday</th>
-			<th data-field="thurs">Thursday</th>
-			<th data-field="fri">Friday</th>
-			<th data-field="sat">Saturday</th>
-
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td>800AM</td>
-			<td>Math</td>
-			<td></td>
-			<td>Muggle Studies</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-
-		</tr>
-		<tr>
-			<td>900AM</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>Defense of the Dark Arts</td>
-			<td></td>
-
-		</tr>
-		<tr>
-			<td>1000AM</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>Herbology</td>
-			<td>History of Magic</td>
-			<td></td>
-
-		</tr>
-		</tbody>
-	</table>
-		</div>
-</div>
+        <div class="col s6 offset-l3 center">
+            <a class="btn-large waves-light waves-effect waves-ripple darken-4 teal"> Who's Free?</a>
 
 
-</div>
+        </div>
+        <div class="col s6 offset-l3">
+            <br>
 
+            <div class="card large">
+                <table class="bordered highlight">
+                    <thead>
+                    <tr>
 
+                        <th data-field="time">Time</th>
+                        <th data-field="sun">Sunday</th>
+                        <th data-field="mon">Monday</th>
+                        <th data-field="tues">Tuesday</th>
+                        <th data-field="wed">Wednesday</th>
+                        <th data-field="thurs">Thursday</th>
+                        <th data-field="fri">Friday</th>
+                        <th data-field="sat">Saturday</th>
 
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>800AM</td>
+                        <td>Math</td>
+                        <td></td>
+                        <td>Muggle Studies</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
+                    </tr>
+                    <tr>
+                        <td>900AM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Defense of the Dark Arts</td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td>1000AM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Herbology</td>
+                        <td>History of Magic</td>
+                        <td></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.button-collapse').sideNav();
+        })
+    </script>
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from user_manager import UserManager
 from forms import LoginForm
 from login_check import login_check
@@ -48,11 +48,10 @@ def render_login(request):
     # Grab the username/email and the password
     if request.method == 'POST':
         is_user_authenticated = login_check(request.POST['username'], request.POST['password'])
-        print 'Is Authenticated? %s' % is_user_authenticated
         context_dict = {'error' : not is_user_authenticated}
         if is_user_authenticated:
-            # TODO: Use HTTP Redirect
-            return render(request, 'home.html')
+            # Redirect the user back to the home page
+            return HttpResponseRedirect('/home')
         else:
             return render(request, 'login.html', context_dict)
 
