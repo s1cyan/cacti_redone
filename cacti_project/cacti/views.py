@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from user_manager import UserManager
+from forms import LoginForm
+from login_check import  login_check
 
 # Global managers
 _user_manager = UserManager()
@@ -45,6 +47,14 @@ def render_friends_page(request):
 
 
 def render_login(request):
+    login_form = LoginForm(request.POST)
+    if request.method == 'POST':
+        login_check(request.POST['username'],request.POST['password'])
+        if True:
+            return render (request, 'home.html')
+        else:
+            return render(request,'login.html')
+
     return render(request, 'login.html')
 
 
