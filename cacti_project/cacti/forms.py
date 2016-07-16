@@ -14,3 +14,6 @@ class LoginForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search_bar_input = forms.CharField(max_length=64)
+
+    class Meta:
+        fields = 'search'

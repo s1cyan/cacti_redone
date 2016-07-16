@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from user_manager import UserManager
 from forms import LoginForm
 from login_check import login_check
+from search_processing import lookup
 
 # Global managers
 _user_manager = UserManager()
@@ -13,6 +14,9 @@ def render_main_page(request):
 
 # Create your views here.
 def render_home_page(request):
+    if request.method == 'POST':
+        lookup(request.POST['search-form'])
+        return
     return render(request, "home.html")
 
 

@@ -1,19 +1,25 @@
 {% extends 'default.html' %}
 
+{% block css %}
+<link href="/static/css/padding.css" type="text/css" rel="stylesheet">
+{% endblock %}
 
 {% block header %}
     {% include "hamburgernav.html" %}
+
 {% endblock %}
-
-
 {% block main %}
     <div class="row">
         <ul class="collection">
             <li class="col s12 collection-item orange lighten-5">
+            <form id="search-form" method="POST">
+                {% csrf_token %}
                 <div class=" input-field">
                     <i class="material-icons prefix">search</i>
                     <input id="icon-prefix" type="text" class="validate" placeholder="Find Friends">
                 </div>
+            </form>
+
             </li>
 
         </ul>
