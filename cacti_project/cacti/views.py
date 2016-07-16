@@ -9,7 +9,7 @@ _user_manager = UserManager()
 
 
 def render_main_page(request):
-    return render(request, "default.html")
+    return render(request, "landing_page.html")
 
 
 # Create your views here.
