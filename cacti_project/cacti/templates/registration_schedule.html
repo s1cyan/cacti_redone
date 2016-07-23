@@ -6,9 +6,59 @@
 
 {% block main %}
     <div class="row">
-        <div class="col s6 offset-s3 red">
-            <span class="flow-text">6 col (offset-3)</span>
-            {# TODO: Add the form #}
+        <div class="col s6 offset-s3">
+            <br>
+            <br>
+            <form action="{{ schedule_processing }}" method="post">
+                <div class="row">
+                    <p>Schedule Title:</p>
+                </div>
+
+                <div class="input-field">
+                    <input id="schedule-name" name="schedule-name" type="text">
+                </div>
+
+                <div class="row">
+                    <p>Schedule Description:</p>
+                </div>
+
+                <div class="input-field">
+                    <textarea id="schedule-description" class="materialize-textarea"
+                              name="schedule-description"></textarea>
+                </div>
+
+                <div class="row">
+                    <p>Start time:</p>
+                </div>
+
+                <div class="row">
+                    <input type="time" name="start-time">
+                </div>
+
+                <div class="row">
+                    <p>End time:</p>
+                </div>
+                <div class="row">
+                    <input type="time" name="end-time">
+                </div>
+
+                <div class="row">
+                    <p>Days you're not free:</p>
+                </div>
+
+                <div class="input-field">
+                    <select multiple name="days">
+                        <option value="" disabled select>Choose which days it applies to</option>
+                        <option value="1">Sunday</option>
+                        <option value="2">Monday</option>
+                        <option value="3">Tuesday</option>
+                        <option value="4">Wednesday</option>
+                        <option value="5">Thursday</option>
+                        <option value="6">Friday</option>
+                        <option value="7">Saturday</option>
+                    </select>
+                </div>
+            </form>
         </div>
 
         <div class="col s3 red">
@@ -16,4 +66,15 @@
             <span class="flow-text">3 col (offset-6)</span>
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
 {% endblock %}
